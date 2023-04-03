@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from app1.models.ShoppingCenterModel import ShoppingCenter
-from app1.serializer.EmployeeSerializer import EmployeeSerializer
+from .ShoppingCenterModel import ShoppingCenter
+from .EmployeeSerializer import EmployeeSerializer
 
 class ShoppingCenterIdSerializer(serializers.ModelSerializer):
     class Meta:

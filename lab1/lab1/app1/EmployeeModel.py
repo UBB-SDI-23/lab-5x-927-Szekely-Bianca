@@ -1,5 +1,5 @@
 from django.db import models
-from app1.models.ShoppingCenterModel import ShoppingCenter
+from .ShoppingCenterModel import ShoppingCenter
 
 class Employee(models.Model):
     employee_firstname= models.CharField(max_length=50)

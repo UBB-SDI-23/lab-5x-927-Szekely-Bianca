@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from app1.models.ShoppingCenterModel import ShoppingCenter
-from app1.models.ProductModel import Product
-from app1.models.ShoppingCenter_ProductModel import ShoppingCenter_Product
+from .ShoppingCenterModel import ShoppingCenter
+from .ProductModel import Product
+from .ShoppingCenter_ProductModel import ShoppingCenter_Product
 
 class ShoppingCenter_ProductSerializer(serializers.ModelSerializer):
     shop = ShoppingCenter()

@@ -1,16 +1,10 @@
-from django.urls import path,include
-from rest_framework_swagger.views import get_swagger_view
+from django.urls import path
 
-from .views.EmployeeView import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
-from .views.ProductView import ProductDetail,ProductInfo
-from .views.ShoppingCenterView import ShoppingCenterDetail,ShoppingCenterInfo,\
+from .EmployeeView import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
+from .ProductView import ProductDetail,ProductInfo
+from .ShoppingCenterView import ShoppingCenterDetail,ShoppingCenterInfo,\
     ShowAllTheShopsOrderedByTheAveragePriceOfTheirProducts,ShowTopFiveShopsWhichHaveMostDistinctProducts,ShoppingCenterCreateView
-from .views.ShoppingCenter_ProductView import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
-from rest_framework.documentation import include_docs_urls
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from django.contrib import admin
-
-
+from .ShoppingCenter_ProductView import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
 
 urlpatterns=[
     path("ShoppingCenter/",ShoppingCenterDetail.as_view(),name="ShoppingCenter"),

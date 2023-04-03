@@ -5,43 +5,41 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from app1.models.EmployeeModel import Employee
-from app1.serializer.EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
+from .ShoppingCenter_ProductModel import ShoppingCenter_Product
+from .ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
 
-
-class EmployeeDetail(APIView):
+class ShoppingCenter_ProductDetail(APIView):
     def get(self, request):
-        obj = Employee.objects.all()
-        # serializer = EmployeeIdSerializer(obj,many=True)
-        serializer = EmployeeSerializer(obj, many=True)
+        obj = ShoppingCenter_Product.objects.all()
+        serializer = ShoppingCenter_ProductSerializer(obj, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = EmployeeSerializer(data=request.data)
+        serializer = ShoppingCenter_ProductSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EmployeeInfo(APIView):
+class ShoppingCenter_ProductInfo(APIView):
     def get(self, request, id):
         try:
-            obj = Employee.objects.get(id=id)
-        except Employee.DoesNotExist:
+            obj = ShoppingCenter_Product.objects.get(id=id)
+        except ShoppingCenter_Product.DoesNotExist:
             msg = {"msg": "not found"}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = EmployeeSerializer(obj)
+        serializer = ShoppingCenter_ProductSerializer(obj)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, id):
         try:
-            obj = Employee.objects.get(id=id)
-        except Employee.DoesNotExist:
+            obj = ShoppingCenter_Product.objects.get(id=id)
+        except ShoppingCenter_Product.DoesNotExist:
             msg = {"msg": "not found error"}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
-        serializer = EmployeeSerializer(obj, data=request.data)
+        serializer = ShoppingCenter_ProductSerializer(obj, data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -50,11 +48,11 @@ class EmployeeInfo(APIView):
 
     def patch(self, request, id):
         try:
-            obj = Employee.objects.get(id=id)
-        except Employee.DoesNotExist:
+            obj = ShoppingCenter_Product.objects.get(id=id)
+        except ShoppingCenter_Product.DoesNotExist:
             msg = {"msg": "not found error"}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
-        serializer = EmployeeSerializer(obj, data=request.data, partial=True)
+        serializer = ShoppingCenter_ProductSerializer(obj, data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
@@ -63,16 +61,10 @@ class EmployeeInfo(APIView):
 
     def delete(self, request, id):
         try:
-            obj = Employee.objects.get(id=id)
-        except Employee.DoesNotExist:
+            obj = ShoppingCenter_Product.objects.get(id=id)
+        except ShoppingCenter_Product.DoesNotExist:
             msg = {"msg": "not found error"}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
 
         obj.delete()
         return Response({"msg": "deleted"}, status=status.HTTP_204_NO_CONTENT)
-
-class EmployeeWithSalaryAtLeastN(APIView):
-    def get(self, request, sal):
-        salary = Employee.objects.filter(employee_salary__gte=sal)
-        serializer = EmployeeSerializer(salary, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
