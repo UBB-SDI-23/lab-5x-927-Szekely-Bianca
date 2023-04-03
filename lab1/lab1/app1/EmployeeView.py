@@ -1,5 +1,6 @@
 from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
     IntegerField, Exists
+from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
 from rest_framework import generics
 from django.shortcuts import render
@@ -10,7 +11,7 @@ from .EmployeeModel import Employee
 from .EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
 
 
-class EmployeeDetail(APIView):
+class EmployeeDetail(GenericAPIView):
     def get(self, request):
         obj = Employee.objects.all()
         # serializer = EmployeeIdSerializer(obj,many=True)
@@ -25,7 +26,7 @@ class EmployeeDetail(APIView):
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EmployeeInfo(APIView):
+class EmployeeInfo(GenericAPIView):
     def get(self, request, id):
         try:
             obj = Employee.objects.get(id=id)
@@ -72,7 +73,7 @@ class EmployeeInfo(APIView):
         obj.delete()
         return Response({"msg": "deleted"}, status=status.HTTP_204_NO_CONTENT)
 
-class EmployeeWithSalaryAtLeastN(APIView):
+class EmployeeWithSalaryAtLeastN(GenericAPIView):
     def get(self, request, sal):
         salary = Employee.objects.filter(employee_salary__gte=sal)
         serializer = EmployeeSerializer(salary, many=True)
