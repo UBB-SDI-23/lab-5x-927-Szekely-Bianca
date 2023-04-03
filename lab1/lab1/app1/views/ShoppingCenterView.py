@@ -5,7 +5,8 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from models.ShoppingCenterModel import ShoppingCenter
+
+from lab1.lab1.app1.models.ShoppingCenterModel import ShoppingCenter
 from app1.serializer.EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
 from app1.serializer.ShoppingCenterSerializer import ShoppingCenterSerializer, ShoppingCenterIdSerializer
 
