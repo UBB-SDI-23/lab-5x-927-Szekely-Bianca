@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'corsheaders',
-    'rest_framework_swagger',
     'drf_spectacular',
 ]
 
@@ -140,15 +139,15 @@ GRAPH_MODELS ={
 'graph_models': True,
 }
 
-SWAGGER_SETTINGS = {
-    'SHOW_REQUEST_HEADERS': True,
-    'SUPPORTED_SUBMIT_METHODS': [
-        'get',
-        'post',
-    ]
-}
-
-
+# SWAGGER_SETTINGS = {
+#     'SHOW_REQUEST_HEADERS': True,
+#     'SUPPORTED_SUBMIT_METHODS': [
+#         'get',
+#         'post',
+#     ]
+# }
+#
+#
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Your Project API',
     'DESCRIPTION': 'Your project description',
