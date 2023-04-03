@@ -2,6 +2,7 @@ from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
     IntegerField, Exists
 from rest_framework import generics
 from django.shortcuts import render
+from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -9,7 +10,7 @@ from .ProductModel import Product
 from .ProductSerializer import ProductSerializer
 
 
-class ProductDetail(APIView):
+class ProductDetail(GenericAPIView):
     def get(self, request):
         obj = Product.objects.all()
         serializer = ProductSerializer(obj, many=True)
@@ -23,7 +24,7 @@ class ProductDetail(APIView):
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ProductInfo(APIView):
+class ProductInfo(GenericAPIView):
     def get(self, request, id):
         try:
             obj = Product.objects.get(id=id)
