@@ -1,9 +1,6 @@
 from rest_framework import serializers
-from lab1.lab1.app1.models.EmployeeModel import Employee
-from lab1.lab1.app1.models.ShoppingCenterModel import ShoppingCenter
-from lab1.lab1.app1.models.ProductModel import Product
-from lab1.lab1.app1.models.ShoppingCenter_ProductModel import ShoppingCenter_Product
-from lab1.lab1.app1.serializer.EmployeeSerializer import EmployeeSerializer
+from app1.models.ShoppingCenterModel import ShoppingCenter
+from app1.serializer.EmployeeSerializer import EmployeeSerializer
 
 class ShoppingCenterIdSerializer(serializers.ModelSerializer):
     class Meta:

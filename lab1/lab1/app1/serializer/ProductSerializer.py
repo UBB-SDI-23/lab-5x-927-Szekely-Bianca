@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from lab1.lab1.app1.models.EmployeeModel import Employee
-from lab1.lab1.app1.models.ShoppingCenterModel import ShoppingCenter
-from lab1.lab1.app1.models.ProductModel import Product
-from lab1.lab1.app1.models.ShoppingCenter_ProductModel import ShoppingCenter_Product
+
+from app1.models.ProductModel import Product
+
 
 class ProductSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(max_length=50)

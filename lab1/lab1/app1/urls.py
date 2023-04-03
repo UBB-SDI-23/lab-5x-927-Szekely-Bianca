@@ -1,12 +1,11 @@
 from django.urls import path,include
 from rest_framework_swagger.views import get_swagger_view
 
-from .views import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
-from .views import ProductDetail,ProductInfo
-from .views import ShoppingCenterDetail,ShoppingCenterInfo
-from .views import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
-from .views import ShowAllTheShopsOrderedByTheAveragePriceOfTheirProducts,ShowTopFiveShopsWhichHaveMostDistinctProducts
-from .views import ShoppingCenterCreateView
+from .views.EmployeeView import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
+from .views.ProductView import ProductDetail,ProductInfo
+from .views.ShoppingCenterView import ShoppingCenterDetail,ShoppingCenterInfo,\
+    ShowAllTheShopsOrderedByTheAveragePriceOfTheirProducts,ShowTopFiveShopsWhichHaveMostDistinctProducts,ShoppingCenterCreateView
+from .views.ShoppingCenter_ProductView import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
 from rest_framework.documentation import include_docs_urls
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from django.contrib import admin

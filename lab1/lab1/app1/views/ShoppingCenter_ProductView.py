@@ -5,14 +5,8 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from lab1.lab1.app1.models.EmployeeModel import Employee
-from lab1.lab1.app1.models.ProductModel import Product
-from lab1.lab1.app1.models.ShoppingCenterModel import ShoppingCenter
-from lab1.lab1.app1.models.ShoppingCenter_ProductModel import ShoppingCenter_Product
-from lab1.lab1.app1.serializer.EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
-from lab1.lab1.app1.serializer.ProductSerializer import ProductSerializer
-from lab1.lab1.app1.serializer.ShoppingCenterSerializer import ShoppingCenterSerializer, ShoppingCenterIdSerializer
-from lab1.lab1.app1.serializer.ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
+from app1.models.ShoppingCenter_ProductModel import ShoppingCenter_Product
+from app1.serializer.ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
 
 class ShoppingCenter_ProductDetail(APIView):
     def get(self, request):
