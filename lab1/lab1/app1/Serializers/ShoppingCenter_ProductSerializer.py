@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .ShoppingCenterModel import ShoppingCenter
-from .ProductModel import Product
-from .ShoppingCenter_ProductModel import ShoppingCenter_Product
+from ..Models.ShoppingCenterModel import ShoppingCenter
+from ..Models.ProductModel import Product
+from ..Models.ShoppingCenter_ProductModel import ShoppingCenter_Product
 
 
 class ShoppingCenter_ProductSerializer(serializers.ModelSerializer):

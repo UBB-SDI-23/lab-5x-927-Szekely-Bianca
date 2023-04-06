@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .ProductModel import Product
+from ..Models.ProductModel import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):

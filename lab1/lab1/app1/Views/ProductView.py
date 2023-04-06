@@ -1,12 +1,8 @@
-from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
-    IntegerField, Exists
-from rest_framework import generics
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .ProductModel import Product
-from .ProductSerializer import ProductSerializer
+from ..Models.ProductModel import Product
+from ..Serializers.ProductSerializer import ProductSerializer
 
 
 class ProductDetail(APIView):

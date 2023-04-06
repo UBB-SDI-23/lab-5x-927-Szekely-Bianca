@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .EmployeeModel import Employee
-from .ShoppingCenterModel import ShoppingCenter
+from ..Models.EmployeeModel import Employee
+from ..Models.ShoppingCenterModel import ShoppingCenter
 
 
 class EmployeeSerializer(serializers.ModelSerializer):

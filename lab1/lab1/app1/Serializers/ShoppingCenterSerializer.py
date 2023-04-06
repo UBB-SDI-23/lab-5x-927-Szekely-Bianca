@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .ShoppingCenterModel import ShoppingCenter
+from ..Models.ShoppingCenterModel import ShoppingCenter
 from .EmployeeSerializer import EmployeeSerializer
 
 class ShoppingCenterIdSerializer(serializers.ModelSerializer):

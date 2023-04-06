@@ -1,14 +1,13 @@
-from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
-    IntegerField, Exists
+from django.db.models import Avg, Count
 from rest_framework import generics
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-from .ShoppingCenterModel import ShoppingCenter
-from .EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
-from .ShoppingCenterSerializer import ShoppingCenterSerializer, ShoppingCenterIdSerializer
+from ..Models.ShoppingCenterModel import ShoppingCenter
+from ..Serializers.EmployeeSerializer import EmployeeSerializer
+from ..Serializers.ShoppingCenterSerializer import ShoppingCenterSerializer
+
 
 class ShoppingCenterDetail(APIView):
     def get(self, request):

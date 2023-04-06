@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .EmployeeView import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
-from .ProductView import ProductDetail,ProductInfo
-from .ShoppingCenterView import ShoppingCenterDetail,ShoppingCenterInfo,\
+from .Views.EmployeeView import EmployeeDetail, EmployeeInfo, EmployeeWithSalaryAtLeastN
+from .Views.ProductView import ProductDetail,ProductInfo
+from .Views.ShoppingCenterView import ShoppingCenterDetail,ShoppingCenterInfo,\
     ShowAllTheShopsOrderedByTheAveragePriceOfTheirProducts,ShowTopFiveShopsWhichHaveMostDistinctProducts,ShoppingCenterCreateView
-from .ShoppingCenter_ProductView import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
+from .Views.ShoppingCenter_ProductView import ShoppingCenter_ProductDetail,ShoppingCenter_ProductInfo
 
 urlpatterns=[
     path("ShoppingCenter/",ShoppingCenterDetail.as_view(),name="ShoppingCenter"),

@@ -1,13 +1,8 @@
-from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
-    IntegerField, Exists
-from rest_framework.views import APIView
-from rest_framework import generics
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .EmployeeModel import Employee
-from .EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
+from ..Models.EmployeeModel import Employee
+from ..Serializers.EmployeeSerializer import EmployeeSerializer
 
 
 class EmployeeDetail(APIView):

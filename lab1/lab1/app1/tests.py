@@ -1,7 +1,7 @@
 from django.test import TestCase
-from .ShoppingCenterModel import ShoppingCenter
-from .ProductModel import Product
-from .ShoppingCenter_ProductModel import ShoppingCenter_Product
+from lab1.lab1.app1.Models.ShoppingCenterModel import ShoppingCenter
+from lab1.lab1.app1.Models.ProductModel import Product
+from lab1.lab1.app1.Models.ShoppingCenter_ProductModel import ShoppingCenter_Product
 from rest_framework.test import APIClient
 from django.urls import reverse
 # Create your tests here.
