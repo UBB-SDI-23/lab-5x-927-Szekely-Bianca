@@ -1,8 +1,11 @@
 from django.test import TestCase
-from .models import ShoppingCenter,Product,ShoppingCenter_Product
+from .ShoppingCenterModel import ShoppingCenter
+from .ProductModel import Product
+from .ShoppingCenter_ProductModel import ShoppingCenter_Product
 from rest_framework.test import APIClient
 from django.urls import reverse
 # Create your tests here.
+
 class ViewTest(TestCase):
     def setUp(self) -> None:
         self.client = APIClient()
@@ -128,20 +131,20 @@ class ViewTest(TestCase):
             shop= self.shop5,
             product= self.product4)
 
-        # self.shop1.products.add(self.product1) #56.45
-        # self.shop2.products.add(self.product2) #70.30
-        #
-        #
-        # self.shop3.products.add(self.product3) #33.275
-        # self.shop3.products.add(self.product1)
-        #
-        # self.shop4.products.add(self.product4) #23.34
-        #
-        # self.shop5.products.add(self.product5) #41.496666666666667
-        # self.shop5.products.add(self.product1)
-        # self.shop5.products.add(self.product4)
+        self.shop1.products.add(self.product1) #56.45
+        self.shop2.products.add(self.product2) #70.30
 
-        #2,1,5,3,4
+
+        self.shop3.products.add(self.product3) #33.275
+        self.shop3.products.add(self.product1)
+
+        self.shop4.products.add(self.product4) #23.34
+
+        self.shop5.products.add(self.product5) #41.496666666666667
+        self.shop5.products.add(self.product1)
+        self.shop5.products.add(self.product4)
+
+        2,1,5,3,4
 
 
     def test_ShowAllTheShopsOrderedByTheAveragePriceOfTheirProducts(self):

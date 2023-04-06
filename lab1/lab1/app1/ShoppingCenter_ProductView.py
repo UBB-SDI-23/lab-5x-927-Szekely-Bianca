@@ -2,14 +2,13 @@ from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
     IntegerField, Exists
 from rest_framework import generics
 from django.shortcuts import render
-from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .ShoppingCenter_ProductModel import ShoppingCenter_Product
 from .ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
 
-class ShoppingCenter_ProductDetail(GenericAPIView):
+class ShoppingCenter_ProductDetail(APIView):
     def get(self, request):
         obj = ShoppingCenter_Product.objects.all()
         serializer = ShoppingCenter_ProductSerializer(obj, many=True)
@@ -23,7 +22,7 @@ class ShoppingCenter_ProductDetail(GenericAPIView):
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ShoppingCenter_ProductInfo(GenericAPIView):
+class ShoppingCenter_ProductInfo(APIView):
     def get(self, request, id):
         try:
             obj = ShoppingCenter_Product.objects.get(id=id)

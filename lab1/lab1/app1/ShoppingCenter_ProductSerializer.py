@@ -1,8 +1,8 @@
 from rest_framework import serializers
-
 from .ShoppingCenterModel import ShoppingCenter
 from .ProductModel import Product
 from .ShoppingCenter_ProductModel import ShoppingCenter_Product
+
 
 class ShoppingCenter_ProductSerializer(serializers.ModelSerializer):
     shop = ShoppingCenter()
@@ -11,15 +11,14 @@ class ShoppingCenter_ProductSerializer(serializers.ModelSerializer):
     availability = serializers.CharField(max_length=10)
     discount = serializers.FloatField()
 
-
-    def validate_shopp_id(self,val):
-        filter= ShoppingCenter.objects.filter(id=val)
+    def validate_shopp_id(self, val):
+        filter = ShoppingCenter.objects.filter(id=val)
         if not filter.exists():
             raise serializers.ValidationError("Shop does not exist!")
         return val
 
-    def validate_product_id(self,val):
-        filter= Product.objects.filter(id=val)
+    def validate_product_id(self, val):
+        filter = Product.objects.filter(id=val)
         if not filter.exists():
             raise serializers.ValidationError("Product does not exist!")
         return val

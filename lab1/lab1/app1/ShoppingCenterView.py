@@ -2,7 +2,6 @@ from django.db.models import Avg, Count, OuterRef, Subquery, Q, Case, When, \
     IntegerField, Exists
 from rest_framework import generics
 from django.shortcuts import render
-from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -11,7 +10,7 @@ from .ShoppingCenterModel import ShoppingCenter
 from .EmployeeSerializer import EmployeeSerializer, EmployeeIdSerializer
 from .ShoppingCenterSerializer import ShoppingCenterSerializer, ShoppingCenterIdSerializer
 
-class ShoppingCenterDetail(GenericAPIView):
+class ShoppingCenterDetail(APIView):
     def get(self, request):
         obj = ShoppingCenter.objects.all()
         # serializer = ShoppingCenterIdSerializer(obj,many=True)
@@ -28,7 +27,7 @@ class ShoppingCenterDetail(GenericAPIView):
     # serializer_class = ShoppingCenterSerializer
 
 
-class ShoppingCenterInfo(GenericAPIView):
+class ShoppingCenterInfo(APIView):
     def get(self, request, id):
         try:
             obj = ShoppingCenter.objects.get(id=id)
@@ -87,7 +86,7 @@ class ShowTopFiveShopsWhichHaveMostDistinctProducts(generics.ListAPIView):
         return query
 
 
-class ShoppingCenterCreateView(GenericAPIView):
+class ShoppingCenterCreateView(APIView):
     def post(self, request, id):
         shopping_center_data = request.data
         msg = "CREATED"
