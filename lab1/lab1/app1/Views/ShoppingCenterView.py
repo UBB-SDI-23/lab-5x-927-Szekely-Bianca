@@ -10,6 +10,7 @@ from ..Serializers.ShoppingCenterSerializer import ShoppingCenterSerializer
 
 
 class ShoppingCenterDetail(APIView):
+    serializer_class = ShoppingCenterSerializer
     def get(self, request):
         obj = ShoppingCenter.objects.all()
         # serializer = ShoppingCenterIdSerializer(obj,many=True)
@@ -27,6 +28,7 @@ class ShoppingCenterDetail(APIView):
 
 
 class ShoppingCenterInfo(APIView):
+    serializer_class = ShoppingCenterSerializer
     def get(self, request, id):
         try:
             obj = ShoppingCenter.objects.get(id=id)
@@ -86,6 +88,7 @@ class ShowTopFiveShopsWhichHaveMostDistinctProducts(generics.ListAPIView):
 
 
 class ShoppingCenterCreateView(APIView):
+    serializer_class = ShoppingCenterSerializer
     def post(self, request, id):
         shopping_center_data = request.data
         msg = "CREATED"

@@ -6,6 +6,7 @@ from ..Serializers.ProductSerializer import ProductSerializer
 
 
 class ProductDetail(APIView):
+    serializer_class = ProductSerializer
     def get(self, request):
         obj = Product.objects.all()
         serializer = ProductSerializer(obj, many=True)
@@ -20,6 +21,7 @@ class ProductDetail(APIView):
 
 
 class ProductInfo(APIView):
+    serializer_class = ProductSerializer
     def get(self, request, id):
         try:
             obj = Product.objects.get(id=id)

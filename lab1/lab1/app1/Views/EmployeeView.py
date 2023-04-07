@@ -6,6 +6,7 @@ from ..Serializers.EmployeeSerializer import EmployeeSerializer
 
 
 class EmployeeDetail(APIView):
+    serializer_class=EmployeeSerializer
     def get(self, request):
         obj = Employee.objects.all()
         # serializer = EmployeeIdSerializer(obj,many=True)
@@ -21,6 +22,7 @@ class EmployeeDetail(APIView):
 
 
 class EmployeeInfo(APIView):
+    serializer_class = EmployeeSerializer
     def get(self, request, id):
         try:
             obj = Employee.objects.get(id=id)
@@ -68,6 +70,7 @@ class EmployeeInfo(APIView):
         return Response({"msg": "deleted"}, status=status.HTTP_204_NO_CONTENT)
 
 class EmployeeWithSalaryAtLeastN(APIView):
+    serializer_class = EmployeeSerializer
     def get(self, request, sal):
         salary = Employee.objects.filter(employee_salary__gte=sal)
         serializer = EmployeeSerializer(salary, many=True)

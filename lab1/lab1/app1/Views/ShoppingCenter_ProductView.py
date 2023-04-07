@@ -5,6 +5,7 @@ from ..Models.ShoppingCenter_ProductModel import ShoppingCenter_Product
 from ..Serializers.ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
 
 class ShoppingCenter_ProductDetail(APIView):
+    serializer_class=ShoppingCenter_ProductSerializer
     def get(self, request):
         obj = ShoppingCenter_Product.objects.all()
         serializer = ShoppingCenter_ProductSerializer(obj, many=True)
@@ -19,6 +20,7 @@ class ShoppingCenter_ProductDetail(APIView):
 
 
 class ShoppingCenter_ProductInfo(APIView):
+    serializer_class = ShoppingCenter_ProductSerializer
     def get(self, request, id):
         try:
             obj = ShoppingCenter_Product.objects.get(id=id)
