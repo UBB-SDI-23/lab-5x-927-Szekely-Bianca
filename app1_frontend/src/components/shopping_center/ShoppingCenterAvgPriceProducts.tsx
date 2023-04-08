@@ -26,7 +26,8 @@ export const ShoppingCenterAvgPriceProducts = () => {
     const [shops, setShoppingCenter] = useState([]);
 
     useEffect(() => {
-        fetch(`${BACKEND_API_URL}/ShoppingCenter/AveragePrice/`)
+        fetch(`ec2-16-170-164-151.eu-north-1.compute.amazonaws.com:80/ShoppingCenter/AveragePrice/`)
+        //fetch(`${BACKEND_API_URL}/ShoppingCenter/AveragePrice/`)
             .then(response => response.json())
             .then(data => {
                 setShoppingCenter(data);

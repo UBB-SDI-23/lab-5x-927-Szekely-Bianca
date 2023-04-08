@@ -26,12 +26,14 @@ import { ShoppingCenterDetails } from "./ShoppingCenterDetails";
 
 export const AllShoppingCenters = () => {
 	const [loading, setLoading] = useState(false);
+	//const [loading, setLoading] = useState(true);
 	const [shops, setShoppingCenter] = useState<ShoppingCenter[]>([]);
+	//const [shops, setShoppingCenter] = useState([]);
 
 	useEffect(() => {
 		setLoading(true);
-		//fetch(`http://ec2-13-50-243-189.eu-north-1.compute.amazonaws.com:8000/app1/ShoppingCenter/`)
-        fetch(`${BACKEND_API_URL}/ShoppingCenter/`)
+		fetch(`ec2-13-50-112-69.eu-north-1.compute.amazonaws.com:8000/app1/ShoppingCenter/`)
+        //fetch(`${BACKEND_API_URL}/ShoppingCenter/`)
 			.then((response) => response.json())
 			.then((data) => {
 				setShoppingCenter(data);
@@ -39,7 +41,7 @@ export const AllShoppingCenters = () => {
 			});
 	}, []);
 
-	// console.log(tennisPlayers);
+	 //console.log(shops);
 
     // const sortTennisPlayer = () => {
     //     const sortedPlayers = [...tennisPlayers].sort((a: TennisPlayer, b:TennisPlayer) => {

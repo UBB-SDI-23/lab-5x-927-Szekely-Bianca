@@ -22,8 +22,8 @@ export const ShoppingCenterUpdate = () => {
 
     useEffect(() => {
         const fetchShoppingCenter = async () => {
-            const response = await fetch(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`);
-            //const response = await fetch(`http://ec2-13-50-243-189.eu-north-1.compute.amazonaws.com:8000/app1/ShoppingCenter/${ShoppingCenterId}/`);
+            //const response = await fetch(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`);
+            const response = await fetch(`ec2-16-170-164-151.eu-north-1.compute.amazonaws.com:80/app1/ShoppingCenter/${ShoppingCenterId}/`);
             const shop = await response.json();
             setShoppingCenter({
                 shop_name: shop.shop_name,
@@ -41,8 +41,8 @@ export const ShoppingCenterUpdate = () => {
     const updateShoppingCenter =async (event: { preventDefault: () => void }) => {
         event.preventDefault();
         try {
-            await axios.put(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`, shop);
-            //await axios.put(`http://ec2-13-50-243-189.eu-north-1.compute.amazonaws.com:8000/app1/ShoppingCenter/${ShoppingCenterId}/`, shop);
+            //await axios.put(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`, shop);
+            await axios.put(`ec2-13-50-112-69.eu-north-1.compute.amazonaws.com:80/app1/ShoppingCenter/${ShoppingCenterId}/`, shop);
             navigate(`/ShoppingCenter/${ShoppingCenterId}`);
         } catch (error) {
             console.log(error);
