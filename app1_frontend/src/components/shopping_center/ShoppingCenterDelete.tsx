@@ -10,7 +10,7 @@ export const ShoppingCenterDelete = () => {
 
     const handleDelete = async(event: {preventDefault: () => void}) => {
         event.preventDefault();
-        await axios.delete(`ec2-13-50-112-69.eu-north-1.compute.amazonaws.com:80/app1/ShoppingCenter/${ShoppingCenterId}/`);
+        await axios.delete(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/${ShoppingCenterId}/`);
         //await axios.delete(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`);
         navigate("/ShoppingCenter");
     };

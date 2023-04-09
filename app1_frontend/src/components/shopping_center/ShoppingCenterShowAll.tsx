@@ -32,7 +32,7 @@ export const AllShoppingCenters = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`ec2-13-50-112-69.eu-north-1.compute.amazonaws.com:8000/app1/ShoppingCenter/`)
+		fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/`)
         //fetch(`${BACKEND_API_URL}/ShoppingCenter/`)
 			.then((response) => response.json())
 			.then((data) => {
@@ -41,22 +41,22 @@ export const AllShoppingCenters = () => {
 			});
 	}, []);
 
-	 //console.log(shops);
+	 console.log(shops);
 
-    // const sortTennisPlayer = () => {
-    //     const sortedPlayers = [...tennisPlayers].sort((a: TennisPlayer, b:TennisPlayer) => {
-    //         if (a.tp_rank < b.tp_rank) {
-    //             return -1;
-    //         }
-    //         if (a.tp_rank > b.tp_rank) {
-    //             return 1;
-    //         }
-    //         return 0;
+    const sortShops = () => {
+        const sorted= [...shops].sort((a: ShoppingCenter, b:ShoppingCenter) => {
+            if (a.shop_floor < b.shop_floor) {
+                return -1;
+            }
+            if (a.shop_floor > b.shop_floor) {
+                return 1;
+            }
+            return 0;
 
-    //     })
-    //     console.log(sortedPlayers);
-    //     setTennisPlayers(sortedPlayers);
-    // }
+        })
+        console.log(sorted);
+        setShoppingCenter(sorted);
+    }
 
 
 	return (
@@ -73,11 +73,11 @@ export const AllShoppingCenters = () => {
 				</IconButton>
 			)}
 
-			{/* {!loading && (
-            <Button sx={{color:"red"}} onClick={sortTennisPlayer}>
-                Sort tennis players
+			{!loading && (
+            <Button sx={{color:"mediumorchid"}} onClick={sortShops}>
+                Sort Shops
             </Button>
-        	)} */}
+        	)}
 
 			{!loading && shops.length > 0 && (
 				<TableContainer component={Paper}>
@@ -119,11 +119,15 @@ export const AllShoppingCenters = () => {
 										</IconButton>
 
 										<IconButton component={Link} sx={{ mr: 3 }} to={`/ShoppingCenter/${ShoppingCenter.id}/edit`}>
-											<EditIcon />
+											<Tooltip title="Edit shop details" arrow>
+												<EditIcon />
+											</Tooltip>
 										</IconButton>
 
 										<IconButton component={Link} sx={{ mr: 3 }} to={`/ShoppingCenter/${ShoppingCenter.id}/delete`}>
-											<DeleteForeverIcon sx={{ color: "red" }} />
+											<Tooltip title="Delete shop" arrow>
+												<DeleteForeverIcon sx={{ color: "red" }} />
+											</Tooltip>
 										</IconButton>
 									</TableCell>
 								</TableRow>

@@ -1,3 +1,4 @@
+import { Employee } from "./Employee";
 import { Product } from "./Product";
 
 export interface ShoppingCenter {
@@ -9,4 +10,5 @@ export interface ShoppingCenter {
     shop_floor: number;
     //products:number[];
     products?:Product[];
+    employees?:Employee[];
 }

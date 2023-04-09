@@ -42,7 +42,7 @@ export const ShoppingCenterUpdate = () => {
         event.preventDefault();
         try {
             //await axios.put(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}/`, shop);
-            await axios.put(`ec2-13-50-112-69.eu-north-1.compute.amazonaws.com:80/app1/ShoppingCenter/${ShoppingCenterId}/`, shop);
+            await axios.put(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/${ShoppingCenterId}/`, shop);
             navigate(`/ShoppingCenter/${ShoppingCenterId}`);
         } catch (error) {
             console.log(error);
@@ -53,7 +53,7 @@ export const ShoppingCenterUpdate = () => {
         <Container>
 			<Card>
 				<CardContent>
-					<IconButton component={Link} sx={{ mr: 3 }} to={`/tennisplayers`}>
+					<IconButton component={Link} sx={{ mr: 3 }} to={`/ShoppingCenter`}>
 						<ArrowBackIcon />
 					</IconButton>{" "}
 					<form onSubmit={updateShoppingCenter}>
