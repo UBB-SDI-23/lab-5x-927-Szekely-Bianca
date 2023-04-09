@@ -26,9 +26,7 @@ import { ShoppingCenterDetails } from "./ShoppingCenterDetails";
 
 export const AllShoppingCenters = () => {
 	const [loading, setLoading] = useState(false);
-	//const [loading, setLoading] = useState(true);
 	const [shops, setShoppingCenter] = useState<ShoppingCenter[]>([]);
-	//const [shops, setShoppingCenter] = useState([])
 
 	useEffect(() => {
 		setLoading(true);
