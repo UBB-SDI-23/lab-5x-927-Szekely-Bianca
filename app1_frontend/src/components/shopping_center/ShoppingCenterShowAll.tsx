@@ -75,7 +75,7 @@ export const AllShoppingCenters = () => {
 
 			{!loading && (
             <Button sx={{color:"mediumorchid"}} onClick={sortShops}>
-                Sort Shops
+                Sort shops by floor
             </Button>
         	)}
 

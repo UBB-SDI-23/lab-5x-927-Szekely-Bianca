@@ -23,10 +23,10 @@ import { BACKEND_API_URL } from "../../constants";
 
 export const ShoppingCenterAvgPriceProducts = () => {
     const [loading, setLoading] = useState(true);
-    const [shops, setShoppingCenter] = useState([]);
+    const [shops, setShoppingCenter] = useState<ShoppingCenterStats[]>([]);
 
     useEffect(() => {
-        fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/ShoppingCenter/AveragePrice/`)
+        fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/AveragePrice/`)
         //fetch(`${BACKEND_API_URL}/ShoppingCenter/AveragePrice/`)
             .then(response => response.json())
             .then(data => {
@@ -47,7 +47,7 @@ export const ShoppingCenterAvgPriceProducts = () => {
 
         {!loading && shops.length > 0 && (
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 900 }} aria-label="simple table">
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>#</TableCell>
