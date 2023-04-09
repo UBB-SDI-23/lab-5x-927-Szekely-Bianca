@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
+//
 export const AppMenu = () => {
 	const location = useLocation();
 	const path = location.pathname;
