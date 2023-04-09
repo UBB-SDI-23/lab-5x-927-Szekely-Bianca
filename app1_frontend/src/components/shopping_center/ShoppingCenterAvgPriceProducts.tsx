@@ -22,7 +22,7 @@ import { BACKEND_API_URL } from "../../constants";
 
 
 export const ShoppingCenterAvgPriceProducts = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [shops, setShoppingCenter] = useState<ShoppingCenterStats[]>([]);
 
     useEffect(() => {
@@ -65,7 +65,11 @@ export const ShoppingCenterAvgPriceProducts = () => {
                                 <TableCell component="th" scope="row">
                                     {index + 1}
                                 </TableCell>
-                                <TableCell align="right">{shop.shop_name}</TableCell>
+                                <TableCell component="th" scope="row">
+										<Link to={`/ShoppingCenter/${shop.id}`} title="View shopping center details">
+											{shop.shop_name}
+										</Link>
+								</TableCell>
                                 <TableCell align="right">{shop.shop_code}</TableCell>
 								<TableCell align="right">{shop.shop_category}</TableCell>
 								<TableCell align="right">{shop.nr_employee}</TableCell>
