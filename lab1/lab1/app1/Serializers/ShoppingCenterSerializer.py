@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from ..Models.ShoppingCenterModel import ShoppingCenter
 from .EmployeeSerializer import EmployeeSerializer
+from .ShoppingCenter_ProductSerializer import ShoppingCenter_ProductSerializer
 
 class ShoppingCenterIdSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,7 +23,7 @@ class ShoppingCenterSerializer(serializers.ModelSerializer):
     count_product=serializers.IntegerField(read_only=True)
     #num_product=serializers.SerializerMethodField()
 
-    #products = ShoppingCenter_ProductSerializer(many=True)
+    products = ShoppingCenter_ProductSerializer(many=True,read_only=True)
     class Meta:
         model = ShoppingCenter
         fields = "__all__"
