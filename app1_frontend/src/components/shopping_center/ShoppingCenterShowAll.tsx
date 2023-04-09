@@ -32,8 +32,8 @@ export const AllShoppingCenters = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/`)
-        //fetch(`${BACKEND_API_URL}/ShoppingCenter/`)
+		//fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/`)
+        fetch(`${BACKEND_API_URL}/ShoppingCenter/`)
 			.then((response) => response.json())
 			.then((data) => {
 				setShoppingCenter(data);
@@ -74,7 +74,7 @@ export const AllShoppingCenters = () => {
 			)}
 
 			{!loading && (
-            <Button sx={{color:"mediumorchid"}} onClick={sortShops}>
+            <Button color="primary" onClick={sortShops}>
                 Sort shops by floor
             </Button>
         	)}

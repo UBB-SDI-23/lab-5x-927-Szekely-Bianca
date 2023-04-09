@@ -14,8 +14,8 @@ export const ShoppingCenterDetails = () => {
 
 	useEffect(() => {
 		const fetchShop = async () => {
-			const response = await fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/${ShoppingCenterId}/`);
-            //const response= await fetch(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}`)
+			//const response = await fetch(`http://ec2-13-50-250-229.eu-north-1.compute.amazonaws.com/app1/ShoppingCenter/${ShoppingCenterId}/`);
+            const response= await fetch(`${BACKEND_API_URL}/ShoppingCenter/${ShoppingCenterId}`)
 			const shop = await response.json();
 			setShoppingCenter(shop);
             console.log(shop);
