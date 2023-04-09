@@ -3,3 +3,4 @@ const DEV_BACKEND_API_URL = "http://ec2-16-16-91-55.eu-north-1.compute.amazonaws
 export const BACKEND_API_URL =
 	process.env.NODE_ENV === "development" ? DEV_BACKEND_API_URL : PROD_BACKEND_API_URL;
 // export const BACKEND_API_URL = "http://ec2-16-16-91-55.eu-north-1.compute.amazonaws.com/app1";
+///app1/* http://ec2-16-16-91-55.eu-north-1.compute.amazonaws.com/:splat 200!
