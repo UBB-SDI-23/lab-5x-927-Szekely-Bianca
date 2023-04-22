@@ -6,4 +6,4 @@
 ///app1/* http://ec2-16-16-91-55.eu-north-1.compute.amazonaws.com/:splat 200!
 ///app1/* http://ec2-13-50-246-102.eu-north-1.compute.amazonaws.com/app1/:splat 200!
 // /*   /index.html   200
-export const BACKEND_API_URL ="https://ShoppingCenter.mooo.com/app1";
+export const BACKEND_API_URL = "https://ShoppingCenter.mooo.com/app1";
