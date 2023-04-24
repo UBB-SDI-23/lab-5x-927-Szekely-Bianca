@@ -7,6 +7,7 @@ class ShoppingCenter(models.Model):
     nr_employee= models.IntegerField()
     shop_floor= models.IntegerField()
     products = models.ManyToManyField('Product', through='ShoppingCenter_Product')
+    phone_number = models.IntegerField()
 
     def __str__(self):
         return f"{self.shop_code} -- {self.shop_name}"
