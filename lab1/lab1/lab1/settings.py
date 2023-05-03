@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path  # type: ignore
-from dotenv import load_dotenv # type: ignore
-import os # type: ignore
+from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
