@@ -8,6 +8,7 @@ class ShoppingCenter_Product(models.Model):
     quantity=models.IntegerField()
     availability = models.CharField(max_length=10)
     discount=models.FloatField()
+    description = models.CharField(max_length=150)
 
     def __str__(self):
         return f"{self.shop}, {self.product} -- {self.quantity} - {self.availability}"

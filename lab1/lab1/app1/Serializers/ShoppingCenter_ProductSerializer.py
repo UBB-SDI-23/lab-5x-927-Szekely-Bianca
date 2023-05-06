@@ -10,6 +10,7 @@ class ShoppingCenter_ProductSerializer(serializers.ModelSerializer):
     quantity = serializers.IntegerField()
     availability = serializers.CharField(max_length=10)
     discount = serializers.FloatField()
+    description = serializers.CharField(max_length=150)
 
     def validate_shopp_id(self, val):
         filter = ShoppingCenter.objects.filter(id=val)

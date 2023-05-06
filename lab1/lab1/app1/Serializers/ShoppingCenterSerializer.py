@@ -17,6 +17,7 @@ class ShoppingCenterSerializer(serializers.ModelSerializer):
     nr_employee= serializers.IntegerField()
     shop_floor= serializers.IntegerField()
 
+
     employees=EmployeeSerializer(many=True,read_only=True)
 
 
